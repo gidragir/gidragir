@@ -13,4 +13,6 @@
 
 ---
 <a href="https://app.daily.dev/gidragir"><img align="left" src="./devcard.png" width="356" alt="Gidragir's Dev Card"/></a>
-<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=gidragir&show_icons=true&locale=en&layout=compact" alt="gidragir" /></p>
+<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=gidragir&show_icons=true&locale=en&layout=compact&theme=tokyonight&hide_border=true&card_width=500" alt="gidragir" /></p>
+<p><img align="center" src="https://github-readme-stats.vercel.app/api?username=gidragir&show_icons=true&theme=tokyonight&hide_border=true&card_width=500" alt="gidragir" /></p>
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com?user=gidragir&theme=tokyonight&hide_border=true&card_width=500" alt="gidragir" /></p>
