@@ -1,0 +1,68 @@
+---
+// src/layouts/BaseLayout.astro
+const { title = "Мое Портфолио" } = Astro.props;
+import "../styles/global.css"
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-indigo-100 selection:text-indigo-700">
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+        
+        <!-- SIDEBAR (Навигация) -->
+        <!-- На мобильных скрыт или перемещен наверх, на десктопе фиксирован слева -->
+        <aside class="w-full md:w-72 bg-white border-r border-slate-200 flex-shrink-0 flex flex-col sticky top-0 h-auto md:h-screen z-10">
+            <div class="p-6 flex flex-col items-center border-b border-slate-100">
+                <!-- Аватар (плейсхолдер) -->
+                <div class="w-32 h-32 rounded-full bg-indigo-500 flex items-center justify-center text-white text-4xl font-bold shadow-lg mb-4 overflow-hidden">
+                   <img src="/profile.jpg" alt="Я" class="object-cover w-full h-full" onerror="this.style.display='none';this.parentElement.innerText='ME'" />
+                </div>
+                <h1 class="text-xl font-bold text-slate-800">Илья Разработчик</h1>
+                <p class="text-sm text-slate-500">Профессия</p>
+            </div>
+
+            <nav class="flex-1 overflow-y-auto py-4 px-4">
+                <ul class="space-y-1">
+                    <li>
+                        <a href="/" class="block px-4 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium hover:bg-indigo-100 transition-colors">
+                            Главная
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/projects" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-indigo-600 transition-colors">
+                            Портфолио
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cv" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-indigo-600 transition-colors">
+                            Резюме (CV)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/yourusername" target="_blank" class="block px-4 py-2 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-indigo-600 transition-colors">
+                            GitHub
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="p-4 border-t border-slate-100 text-center text-xs text-slate-400">
+                &copy; 2024 Ivan Dev. <br/> Built with Astro & Tailwind.
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-1 p-6 md:p-10 max-w-5xl mx-auto w-full">
+            <slot /> <!-- Сюда вставляется контент страниц -->
+        </main>
+
+    </div>
+
+</body>
+</html>

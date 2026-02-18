@@ -1,11 +1,150 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Имитация данных (обычно они приходят из Markdown или API)
+const recentProjects = [
+  {
+    title: "E-commerce Dashboard",
+    desc: "Панель управления для онлайн-магазина на React и Tailwind.",
+    tags: ["React", "Tailwind", "Recharts"],
+    link: "/projects/ecommerce",
+    img: "bg-blue-100" // Плейсхолдер цвета
+  },
+  {
+    title: "Astro Blog Theme",
+    desc: "Супер-быстрая тема для блога с поддержкой SEO и MDX.",
+    tags: ["Astro", "TypeScript"],
+    link: "/projects/blog",
+    img: "bg-orange-100"
+  },
+  {
+    title: "Mobile Finance App",
+    desc: "PWA приложение для учета личных финансов.",
+    tags: ["Vue", "PWA", "Firebase"],
+    link: "/projects/finance",
+    img: "bg-green-100"
+  }
+];
+
+const githubActivity = [
+  { repo: "my-portfolio", msg: "feat: added new project cards", time: "2 часа назад" },
+  { repo: "astro-tools", msg: "fix: mobile navigation bug", time: "Вчера" },
+  { repo: "react-ui-kit", msg: "docs: updated readme structure", time: "2 дня назад" },
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Главная | Илья Разработчик">
+  
+  <!-- HERO SECTION -->
+  <section class="mb-12">
+    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+      Привет, я <span class="text-indigo-600">Илья</span> 👋
+    </h1>
+    <div class="prose prose-lg text-slate-600 max-w-none">
+      <p>
+        Я <b>Fullstack веб-разработчик</b> и UI-дизайнер. Я создаю быстрые, адаптивные и красивые веб-сайты.
+        В своей работе я фокусируюсь на производительности (Astro) и чистоте кода.
+      </p>
+      <div class="not-prose mt-6 flex gap-4">
+        <a href="mailto:email@example.com" class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow hover:bg-indigo-700 transition">
+          Связаться
+        </a>
+        <a href="/cv" class="px-6 py-3 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition">
+          Скачать CV
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="border-slate-200 my-10" />
+
+  <!-- GITHUB ACTIVITY SECTION -->
+  <section class="mb-12">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        Последние изменения в GitHub
+      </h2>
+      <a href="https://github.com" class="text-sm text-indigo-600 hover:underline">Все репозитории &rarr;</a>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+        {githubActivity.map((item) => (
+            <div class="px-6 py-4 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                    <span class="font-mono text-xs text-indigo-500 bg-indigo-50 px-2 py-1 rounded mr-2">{item.repo}</span>
+                    <span class="text-slate-700 font-medium">{item.msg}</span>
+                </div>
+                <span class="text-xs text-slate-400 whitespace-nowrap">{item.time}</span>
+            </div>
+        ))}
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SECTION -->
+  <section class="mb-12">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-slate-800">Избранные проекты</h2>
+      <a href="/projects" class="text-sm text-indigo-600 hover:underline">Посмотреть все &rarr;</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {recentProjects.map((project) => (
+        <a href={project.link} class="group block bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+          <div class={`h-40 ${project.img} w-full object-cover group-hover:opacity-90 transition`}>
+            <!-- Здесь была бы картинка: <img src="..." /> -->
+            <div class="flex items-center justify-center h-full text-slate-400 font-bold text-xl opacity-30">IMG</div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors mb-2">
+              {project.title}
+            </h3>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-2">
+              {project.desc}
+            </p>
+            <div class="flex flex-wrap gap-2">
+              {project.tags.map(tag => (
+                <span class="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-1 rounded">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- RESUME / CV PREVIEW SECTION -->
+  <section>
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-slate-800">Опыт работы</h2>
+      <a href="/cv" class="text-sm text-indigo-600 hover:underline">Полное резюме &rarr;</a>
+    </div>
+
+    <div class="relative border-l-2 border-slate-200 ml-3 space-y-8 pb-4">
+        
+        <!-- Timeline Item 1 -->
+        <div class="relative pl-8">
+            <span class="absolute -left-[9px] top-1 h-4 w-4 rounded-full bg-indigo-600 border-4 border-white ring-1 ring-slate-200"></span>
+            <h3 class="text-lg font-bold text-slate-900">Senior Frontend Developer</h3>
+            <span class="text-sm text-slate-500 block mb-2">TechCorp Inc. | 2021 - Настоящее время</span>
+            <p class="text-slate-600 text-sm">
+                Разработка масштабируемых SPA на Astro и React. Оптимизация производительности и менторство младших разработчиков.
+            </p>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="relative pl-8">
+            <span class="absolute -left-[9px] top-1 h-4 w-4 rounded-full bg-slate-300 border-4 border-white ring-1 ring-slate-200"></span>
+            <h3 class="text-lg font-bold text-slate-900">Web Designer</h3>
+            <span class="text-sm text-slate-500 block mb-2">Creative Studio | 2019 - 2021</span>
+            <p class="text-slate-600 text-sm">
+                Создание UI/UX дизайнов для мобильных приложений и корпоративных сайтов.
+            </p>
+        </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
