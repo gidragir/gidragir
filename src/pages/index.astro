@@ -1,5 +1,6 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { BaseLayout } from "@/layouts";
+import { WatchGraphWrapper } from "@/components/ParentWatchGraph";
 
 // Имитация данных (обычно они приходят из Markdown или API)
 const recentProjects = [
@@ -55,6 +56,8 @@ const githubActivity = [
       </div>
     </div>
   </section>
+
+  <hr class="border-slate-200 my-10" />
 
   <hr class="border-slate-200 my-10" />
 

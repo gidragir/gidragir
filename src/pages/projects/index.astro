@@ -1,0 +1,62 @@
+---
+import { BaseLayout } from "@/layouts";
+
+// Получаем все .astro файлы в папке projects (исключая компоненты, если они не .astro, но тут все страницы)
+const projectPages = await Astro.glob("./*.astro");
+
+// Фильтруем, чтобы не выводить саму страницу проектов (index.astro)
+const projects = projectPages.filter(
+  (page) => page.url && page.url !== "/projects",
+);
+---
+
+<BaseLayout title="Все проекты | Илья Разработчик">
+  <section class="max-w-5xl mx-auto py-8">
+    <div class="flex items-center justify-between mb-8">
+      <h1 class="text-3xl md:text-4xl font-bold text-slate-900">Все проекты</h1>
+      <a href="/" class="text-sm text-indigo-600 hover:underline">
+        &larr; На главную
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        projects.map((project) => {
+          // Пробуем получить название проекта из URL
+          const pathParts = project.url?.split("/") || [];
+          const name = pathParts[pathParts.length - 1] || "Проект";
+          const displayName = name.replace(/[-_]/g, " ");
+
+          return (
+            <a
+              href={project.url}
+              class="group block bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col h-full"
+            >
+              <div class="h-40 bg-indigo-50 w-full flex items-center justify-center group-hover:bg-indigo-100 transition-colors">
+                <span class="text-indigo-400 font-bold text-xl opacity-50 px-4 text-center">
+                  {displayName}
+                </span>
+              </div>
+              <div class="p-5 flex-grow flex flex-col">
+                <h3 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors mb-2 capitalize">
+                  {displayName}
+                </h3>
+                <p class="text-slate-600 text-sm mt-auto">
+                  Посмотреть проект &rarr;
+                </p>
+              </div>
+            </a>
+          );
+        })
+      }
+
+      {
+        projects.length === 0 && (
+          <div class="col-span-full py-12 text-center bg-slate-50 rounded-xl border border-slate-200 border-dashed">
+            <p class="text-slate-500">В этой папке пока нет других проектов.</p>
+          </div>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

@@ -19,7 +19,6 @@ jobs:
    - name: Install, build, and upload your site
      uses: withastro/action@v5
      with:
-      path: ./gidragir
       package-manager: pnpm@latest
      # env:
      # PUBLIC_POKEAPI: 'https://pokeapi.co/api/v2' # Use single quotation marks for the variable value. (optional)

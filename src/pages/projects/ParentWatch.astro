@@ -1,0 +1,14 @@
+---
+import WatchGraphWrapper from "@/components/ParentWatchGraph/WatchGraphWrapper";
+import { BaseLayout } from "@/layouts";
+---
+
+<BaseLayout title="Все проекты | Илья Разработчик">
+  <section class="mb-12">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold text-slate-800">Архитектура проекта</h2>
+    </div>
+
+    <WatchGraphWrapper client:only="react" />
+  </section>
+</BaseLayout>
