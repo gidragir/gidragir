@@ -4,4 +4,4 @@
 
 ---
 # My devcard
-<a href="https://app.daily.dev/gidragir"><img align="left" src="./devcard.png" width="356" alt="Gidragir's Dev Card"/></a>
+<a href="https://app.daily.dev/gidragir"><img align="left" src="./public/devcard.png" width="356" alt="Gidragir's Dev Card"/></a>
