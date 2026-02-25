@@ -1,24 +1,26 @@
 {
-  "name": "gidragir",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/react": "^4.4.2",
-    "@tailwindcss/vite": "^4.1.18",
-    "@xyflow/react": "^12.10.1",
-    "astro": "^5.17.1",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "tailwindcss": "^4.1.18"
-  },
-  "devDependencies": {
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3"
-  }
+    "name": "gidragir",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "build-cvs": "node scripts/build-cvs.mjs",
+        "build": "pnpm build-cvs && astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@astrojs/react": "^4.4.2",
+        "@tailwindcss/vite": "^4.2.1",
+        "@xyflow/react": "^12.10.1",
+        "astro": "^5.17.1",
+        "react": "^19.2.4",
+        "react-dom": "^19.2.4",
+        "tailwindcss": "^4.2.1"
+    },
+    "devDependencies": {
+        "@types/react": "^19.2.14",
+        "@types/react-dom": "^19.2.3",
+        "fs-extra": "^11.3.3"
+    }
 }

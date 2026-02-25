@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./github-metrics.svg" alt="GitHub Metrics" height="100%" style="max-width: 800px;" />
+<img src="./public/github-metrics.svg" alt="GitHub Metrics" height="100%" style="max-width: 800px;" />
 </div>
 
 ---

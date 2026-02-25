@@ -1,0 +1,6 @@
+[submodule "submodules/resume_1c"]
+	path = submodules/resume_1c
+	url = https://github.com/gidragir/resume_1c
+[submodule "submodules/resume_devops"]
+	path = submodules/resume_devops
+	url = https://github.com/gidragir/resume_devops

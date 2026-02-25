@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# cv projects
+public/cv/
+
 # generated types
 .astro/
 

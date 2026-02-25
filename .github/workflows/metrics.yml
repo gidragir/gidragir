@@ -1,10 +1,7 @@
 name: Metrics
 on:
-  # Запуск каждые 12 часов
   schedule: [{cron: "0 0,12 * * *"}]
-  # Возможность ручного запуска
   workflow_dispatch:
-  # Запуск при пуше в main/master
   push: {branches: ["master", "main"]}
 
 jobs:
@@ -15,7 +12,7 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          filename: github-metrics.svg
+          filename: public/github-metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           user: gidragir
           template: classic
