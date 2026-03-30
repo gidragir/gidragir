@@ -1,0 +1,1 @@
+import{n as e,t}from"./react-BnW17tp1.js";export{t as MDXProvider};
