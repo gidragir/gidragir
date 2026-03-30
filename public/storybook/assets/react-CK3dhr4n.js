@@ -1,0 +1,1 @@
+import{n as e,t}from"./react-BtsUfJgn.js";export{t as MDXProvider};
